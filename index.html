@@ -1,0 +1,1488 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Sagarika Shinde Portfolio</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+	<!-- Fonts + Icons -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+	<!-- Effects -->
+	<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+	<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+	<style>
+		:root {
+			--accent: #9370db;
+			--dark: #4b0082;
+			--accent-15: color-mix(in srgb, var(--accent) 15%, transparent);
+		}
+
+		body,
+		input,
+		select,
+		textarea {
+			font-family: 'Poppins', system-ui, sans-serif;
+		}
+
+		#intro p {
+			color: black;
+			/* sets all paragraph text inside #intro to black */
+		}
+
+		/* Typing line under the header title */
+		.typing-text {
+			font-size: 1.35rem;
+			font-weight: 600;
+			color: var(--accent);
+			margin-top: .75rem;
+		}
+
+		#role-line {
+			font-size: 2.5rem;
+			font-weight: 550;
+			line-height: 1.1;
+			color: whitesmoke;
+		}
+
+		.cursor {
+			display: inline-block;
+			width: 3px;
+			height: 1em;
+			background: var(--dark);
+			margin-left: 4px;
+			animation: blink 1s infinite;
+		}
+
+		@keyframes blink {
+
+			0%,
+			100% {
+				opacity: 1
+			}
+
+			50% {
+				opacity: 0
+			}
+		}
+
+		/* Particles behind the Stellar header banner */
+		#particles-js {
+			position: absolute;
+			inset: 0;
+			z-index: 0;
+			opacity: .9;
+		}
+
+		#header {
+			position: relative;
+			overflow: hidden;
+		}
+
+		/* Hover lift for feature tiles / project tiles */
+		ul.features li {
+			transition: transform .25s ease, box-shadow .25s ease;
+		}
+
+		ul.features li:hover {
+			transform: translateY(-6px);
+			box-shadow: 0 12px 24px rgba(147, 112, 219, .18);
+		}
+
+		.icon.major {
+			transition: transform .25s ease, background-color .25s ease, color .25s ease;
+		}
+
+		ul.features li:hover .icon.major {
+			transform: scale(1.06);
+			background: rgba(147, 112, 219, .12);
+			color: var(--accent);
+		}
+
+		/* Simple reveal-on-scroll */
+		.reveal {
+			opacity: 0;
+			transform: translateY(18px);
+			transition: opacity .6s ease, transform .6s ease;
+		}
+
+		.reveal.visible {
+			opacity: 1;
+			transform: none;
+		}
+
+		/* Technologies grid to add into Stellar as a section */
+		.tech-grid {
+			display: grid;
+			gap: 1rem;
+			grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+		}
+
+		.tech-item {
+			background: #fff;
+			border-radius: .6rem;
+			padding: .9rem .6rem;
+			text-align: center;
+			box-shadow: 0 2px 8px rgba(124, 77, 255, .07);
+			transition: transform .2s ease, box-shadow .2s ease;
+		}
+
+		.tech-item img {
+			height: 36px;
+			display: block;
+			margin: 0 auto .5rem;
+		}
+
+		.tech-item span {
+			font-weight: 600;
+			color: #222;
+			font-size: .95rem;
+		}
+
+		.tech-item:hover {
+			transform: translateY(-4px);
+			box-shadow: 0 10px 18px rgba(147, 112, 219, .15);
+		}
+
+		/* ===== Projects (Stellar add-on) ===== */
+
+		#skills-tools h2 {
+			font-weight: bold;
+		}
+
+		#projects h2 {
+			font-weight: bold;
+		}
+
+		#intro h2 {
+			font-weight: bold;
+		}
+
+		.projects-grid {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 2rem;
+		}
+
+		.project-card {
+			background: #fff;
+			border-radius: 0.65rem;
+			overflow: hidden;
+			box-shadow: 0 0.75rem 1.25rem rgba(0, 0, 0, 0.06), 0 0.15rem 0.35rem rgba(0, 0, 0, 0.04);
+			transition: transform .25s ease, box-shadow .25s ease;
+		}
+
+		.project-card:hover {
+			transform: translateY(-6px);
+			box-shadow: 0 1.1rem 1.8rem rgba(0, 0, 0, 0.10), 0 0.25rem 0.55rem rgba(0, 0, 0, 0.06);
+		}
+
+		.fab.fa-github {
+			font-size: 2.5rem;
+			/* adjust size: 1rem = 16px */
+		}
+
+		.project-image {
+			display: block;
+			background: #f3f3f3;
+		}
+
+		.project-image img {
+			display: block;
+			width: 100%;
+			height: 350px;
+			/* consistent height */
+			object-fit: cover;
+			/* use 'contain' if your thumbs are logos */
+			transition: transform .45s ease;
+		}
+
+		.project-card:hover .project-image img {
+			transform: scale(1.04);
+		}
+
+		.project-content {
+			padding: 1.25rem 1.25rem 1.5rem;
+		}
+
+		.project-title-with-icon {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: .75rem;
+		}
+
+		.project-title {
+			margin: 0;
+			font-size: 1.5rem;
+			font-weight: 900;
+			color: #000;
+		}
+
+		.project-description {
+			margin: .65rem 0 1rem;
+			color: black;
+		}
+
+		.project-tags {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			display: flex;
+			flex-wrap: wrap;
+			gap: .5rem;
+		}
+
+		.project-tag {
+			display: inline-block;
+			padding: .25rem .6rem;
+			font-size: 1rem;
+			border-radius: 999px;
+			background: rgba(245, 106, 106, .12);
+			/* subtle chip */
+			border: 1px solid rgba(245, 106, 106, .25);
+			color: #000;        /* black text */
+  			font-weight: 600;
+		}
+
+		.project-links {
+			display: flex;
+			align-items: center;
+			gap: .6rem;
+		}
+
+		.project-link {
+			font-size: 1.35rem;
+			opacity: .75;
+			transition: opacity .2s ease, color .2s ease;
+		}
+
+		.project-link:hover {
+			opacity: 1;
+			color: var(--accent);
+		}
+
+		/* Responsive tweaks to match Stellar breakpoints */
+		@media screen and (max-width: 980px) {
+			.projects-grid {
+				grid-template-columns: 1fr 1fr;
+			}
+		}
+
+		@media screen and (max-width: 736px) {
+			.projects-grid {
+				grid-template-columns: 1fr;
+			}
+
+			.project-image img {
+				height: 200px;
+			}
+		}
+
+		/* -------- Toolsets (works with Stellar) -------- */
+		.toolsets-grid {
+			display: grid;
+			gap: 2.5rem;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+
+		@media (max-width: 980px) {
+			.toolsets-grid {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+
+		@media (max-width: 736px) {
+			.toolsets-grid {
+				grid-template-columns: 1fr;
+			}
+		}
+
+		.toolset {
+			background: rgba(255, 255, 255, 0.03);
+			border: 1px solid rgba(255, 255, 255, 0.12);
+			border-radius: 0.5rem;
+			padding: 2rem;
+			transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+		}
+
+		.toolset:hover {
+			transform: translateY(-4px);
+			box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, .08);
+			border-color: rgba(255, 255, 255, 0.22);
+		}
+
+		.toolset>header h3 {
+			margin: 0 0 0.5rem 0;
+			display: flex;
+			align-items: center;
+			gap: .6rem;
+		}
+
+		.tools {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			display: flex;
+			flex-wrap: wrap;
+			gap: .6rem .6rem;
+		}
+
+		.tool-chip {
+			display: inline-block;
+			font-size: .9rem;
+			line-height: 1;
+			padding: .6rem .8rem;
+			border-radius: 999px;
+			border: 1px solid rgba(0, 0, 0, 0.12);
+			background: rgba(245, 106, 106, .06);
+			color: inherit;
+			transition: transform .12s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+			position: relative;
+			text-decoration: none;
+		}
+
+		.tool-chip:hover,
+		.tool-chip:focus {
+			transform: translateY(-2px);
+			box-shadow: 0 8px 16px rgba(245, 106, 106, 0.18);
+			background: rgba(245, 106, 106, .12);
+			border-color: var(--accent);
+			outline: none;
+		}
+
+		/* optional tooltip via data-tip */
+		.tool-chip[data-tip]::after {
+			content: attr(data-tip);
+			position: absolute;
+			left: 50%;
+			top: calc(100% + 8px);
+			transform: translateX(-50%);
+			background: rgba(0, 0, 0, .85);
+			color: #fff;
+			font-size: .75rem;
+			padding: .4rem .6rem;
+			border-radius: .35rem;
+			white-space: nowrap;
+			opacity: 0;
+			pointer-events: none;
+			transition: opacity .15s ease;
+		}
+
+		.tool-chip[data-tip]:hover::after {
+			opacity: 1;
+		}
+
+		/* Icons inside chips */
+		.tool-chip {
+			display: inline-flex;
+			align-items: center;
+			gap: .5rem;
+		}
+
+		/* Devicon <i> icons */
+		.tool-chip i[class^="devicon-"] {
+			font-size: 1.15em;
+			line-height: 1;
+		}
+
+		/* Image icons (SimpleIcons or your own) */
+		.tool-chip img.tool-icon {
+			width: 1.15em;
+			height: 1.15em;
+			display: inline-block;
+			object-fit: contain;
+			vertical-align: middle;
+		}
+
+		/* subheading + rows */
+		.toolband .major h2 {
+			letter-spacing: .04em;
+		}
+
+		.toolband h3 {
+			margin: 1.5rem 0 .75rem;
+			font-weight: 700;
+		}
+
+		.brandrow {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: flex-end;
+			gap: clamp(18px, 2vw, 34px);
+			margin: 1rem 0 2.25rem;
+		}
+
+		.brand {
+			min-width: 92px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+			transition: transform .18s ease;
+		}
+
+		.brand:hover {
+			transform: translateY(-3px) scale(1.03);
+		}
+
+		/* DEVICON: use the “colored” variant so logos keep their brand colors */
+		.brand i[class^="devicon-"] {
+			font-size: 46px;
+			line-height: 1;
+		}
+
+		/* SVG logos from SimpleIcons (already colored) */
+		.brand img.brand-logo {
+			height: 46px;
+			width: auto;
+			display: block;
+		}
+
+		/* tool names use Stellar palette color */
+		.brand em {
+			margin-top: .45rem;
+			font-style: normal;
+			font-weight: 600;
+			font-size: .95rem;
+			color: var(--st-name);
+		}
+
+		@media (max-width:640px) {
+
+			.brand i[class^="devicon-"],
+			.brand img.brand-logo {
+				font-size: 40px;
+				height: 40px;
+			}
+		}
+
+		/* ========= Work Experience — Pipeline Cards ========= */
+		/* Theme (match your left palette) */
+		:root {
+			--exp-border: #f1ccd4;
+			/* soft pink outline */
+			--exp-fill: #fdecef;
+			/* blush background */
+			--exp-hover: #ee9fb0;
+			/* deeper pink */
+			--text-900: #2a2a2a;
+			--text-600: #6f6f6f;
+		}
+
+		/* Heading: bold like you wanted */
+		#experience .major h2 {
+			font-weight: 900;
+		}
+
+		/* Grid */
+		.exp-grid {
+			display: grid;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			gap: 1.5rem;
+		}
+
+		@media (max-width: 1024px) {
+			.exp-grid {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+
+		@media (max-width: 640px) {
+			.exp-grid {
+				grid-template-columns: 1fr;
+			}
+		}
+
+		/* Card */
+		.exp-card {
+			display: flex;
+			flex-direction: column;
+			border: 2px solid var(--exp-border);
+			border-radius: 18px;
+			background: #fff;
+			box-shadow: 0 0 0 3px #fdecef, 0 1px 0 rgba(0, 0, 0, .04);
+			overflow: hidden;
+			transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+		}
+
+		/* Top image area */
+		.exp-cover {
+			background: var(--exp-fill);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			min-height: 180px;
+			/* card’s “poster” */
+		}
+
+		/* Body */
+		.exp-body {
+			padding: 1rem 1.25rem 1.25rem;
+			text-align: center;
+		}
+
+		.exp-company {
+			margin: .25rem 0 0;
+			font-weight: 800;
+			color: var(--text-900);
+		}
+
+		.exp-role {
+			margin: .15rem 0 0;
+			color: var(--text-600);
+			font-weight: 600;
+		}
+
+		.exp-dates {
+			margin: .6rem 0 0;
+			color: var(--text-600);
+			font-weight: 500;
+		}
+
+		/* Hover */
+		.hover-accent:hover {
+			transform: translateY(-3px);
+			border-color: var(--exp-hover);
+			box-shadow: 0 12px 24px rgba(0, 0, 0, .08);
+		}
+
+	
+
+		/* ===== Education Timeline Layout ===== */
+		/* Bigger, crisper logos */
+
+		#education .edu-logo {
+			width: 96px;
+			/* desktop size */
+			height: 96px;
+			/* keep square; bump to 112–128px if you want even bigger */
+			object-fit: contain;
+			/* keep aspect ratio without cropping */
+			flex-shrink: 0;
+			/* don’t let flex squeeze it */
+			border-radius: 14px;
+			box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+		}
+
+		/* Add a bit more breathing room around the larger logo */
+		#education .edu-head {
+			gap: 1.25rem;
+		}
+
+		/* Scale down on small screens */
+		@media (max-width: 720px) {
+			#education .edu-logo {
+				width: 72px;
+				height: 72px;
+			}
+		}
+
+		#education .edu-rail {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			display: grid;
+			gap: 3rem;
+		}
+
+		#education .edu-node {
+			display: grid;
+			grid-template-columns: 110px 1fr;
+			/* left rail | right card */
+			align-items: start;
+			gap: 1.5rem;
+		}
+
+		/* Left column (year + dot + line) */
+		#education .edu-col {
+			position: relative;
+			display: grid;
+			justify-items: end;
+			align-items: start;
+		}
+
+		/* Keep the year on ONE line */
+		#education .edu-year {
+			white-space: nowrap;
+			/* <<< prevents wrapping */
+			word-break: keep-all;
+			font-weight: 700;
+			font-size: 1.05rem;
+			letter-spacing: 0.2px;
+			color: #4a4a4a;
+			margin-top: 0.25rem;
+		}
+
+		/* Dot + line for the rail */
+		#education .edu-dot {
+			width: 10px;
+			height: 10px;
+			border-radius: 999px;
+			background: #f0a9b6;
+			box-shadow: 0 0 0 4px #f8dfe4;
+			/* soft halo */
+			margin: 0.6rem 0 0.4rem;
+		}
+
+		#education .edu-line {
+			display: block;
+			width: 2px;
+			height: 100%;
+			background: linear-gradient(#f8dfe4, #f0a9b6);
+		}
+
+		/* ===== Card ===== */
+		#education .edu-card {
+			background: #fff;
+			border: 2px solid #f1ccd4;
+			/* <<< outlined box */
+			border-radius: 18px;
+			padding: 1.25rem 1.25rem 1rem;
+			box-shadow: 0 1px 0 rgba(0, 0, 0, .04);
+			transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+		}
+
+		#education .edu-card.hover-accent:hover {
+			border-color: #ee9fb0;
+			transform: translateY(-2px);
+			box-shadow: 0 10px 24px rgba(0, 0, 0, .08);
+		}
+
+		/* Card header: logo + text block */
+		#education .edu-head {
+			display: flex;
+			gap: 1rem;
+			align-items: center;
+		}
+
+		#education .edu-logo {
+			border-radius: 12px;
+			box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+		}
+
+		/* Degree line as a pill */
+		#education .edu-top {
+			display: flex;
+			flex-wrap: wrap;
+			gap: .5rem 1rem;
+			align-items: center;
+		}
+
+		#education .edu-degree {
+			display: inline-flex;
+			align-items: center;
+			gap: .5rem;
+			font-weight: 800;
+			border: 2px solid #efc2cb;
+			background: #fdecef;
+			padding: .4rem .75rem;
+			border-radius: 999px;
+		}
+
+		#education .edu-meta {
+			color: #6f6f6f;
+			font-weight: 500;
+		}
+
+		#education .edu-school {
+			margin: .35rem 0 0;
+			font-weight: 800;
+		}
+
+		#education .edu-dates {
+			margin: .1rem 0 0;
+			color: #7a7a7a;
+		}
+
+		/* Course chips */
+		#education .edu-courses {
+			display: flex;
+			flex-wrap: wrap;
+			gap: .5rem .8rem;
+			margin-top: .9rem;
+		}
+
+		#education .edu-chip {
+			display: inline-flex;
+			align-items: center;
+			gap: .35rem;
+			padding: .3rem .6rem;
+			border-radius: 999px;
+			border: 1px solid #eee;
+			background: #fafafa;
+			font-size: .92rem;
+		}
+
+		/* ===== Responsive tweaks ===== */
+		@media (max-width: 720px) {
+			#education .edu-node {
+				grid-template-columns: 1fr;
+				/* stack */
+			}
+
+			#education .edu-col {
+				justify-items: start;
+				margin-bottom: .5rem;
+			}
+
+			#education .edu-card {
+				padding: 1rem;
+			}
+		}
+
+		#education h2 {
+			font-weight: bold;
+		}
+
+		/* ===== Connect: circle icons ===== */
+		#connect h2 {
+			font-weight: bold;
+		}
+
+		#connect .connect-circles {
+			list-style: none;
+			padding: 0;
+			margin: 2rem 0 0;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 2rem 3rem;
+		}
+
+		#connect .connect-circles li {
+			text-align: center;
+			min-width: 150px;
+		}
+
+		#connect .circle {
+			width: 96px;
+			height: 96px;
+			border-radius: 50%;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+
+			/* Subtle “Stellar-like” surface */
+			background: rgba(255, 255, 255, 0.04);
+			border: 1px solid rgba(255, 255, 255, 0.18);
+			box-shadow: 0 8px 20px rgba(0, 0, 0, .15);
+
+			transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+			text-decoration: none;
+		}
+
+		#connect .circle:hover,
+		#connect .circle:focus {
+			transform: translateY(-4px) scale(1.04);
+			box-shadow: 0 12px 28px rgba(0, 0, 0, .18);
+			border-color: rgba(255, 255, 255, 0.28);
+			background: rgba(255, 255, 255, 0.06);
+		}
+
+		#connect .circle .icon {
+			font-size: 2rem;
+			line-height: 1;
+		}
+
+		/* Brand colors for the icons (original brand colors) */
+		#connect .circle.linkedin .icon {
+			color: #0A66C2;
+		}
+
+		/* LinkedIn */
+		#connect .circle.gmail .icon {
+			color: #D93025;
+		}
+
+		/* Gmail */
+		#connect .circle.github .icon {
+			color: #181717;
+		}
+
+		/* GitHub */
+
+		/* Titles under circles (use theme text color) */
+		#connect h3 {
+			margin: 0.9rem 0 0;
+			font-weight: 600;
+			font-size: 1rem;
+		}
+
+		#connect h3 a {
+			text-decoration: none;
+			border-bottom: 0;
+			/* matches Stellar link style inside headings */
+		}
+
+		/* Responsive */
+		@media screen and (max-width: 736px) {
+			#connect .circle {
+				width: 88px;
+				height: 88px;
+			}
+
+			#connect .connect-circles {
+				gap: 1.5rem 2rem;
+			}
+
+			#connect h3 a {
+				color: #c37a7a;
+			}
+		}
+
+
+		/* Reusable hover helper */
+		.hover-accent {
+			transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background-color .2s ease;
+			border: 1px solid rgba(255, 255, 255, .12);
+			background: rgba(255, 255, 255, .02);
+			border-radius: .5rem;
+		}
+
+		.hover-accent:hover,
+		.hover-accent:focus-within {
+			transform: translateY(-4px);
+			box-shadow: 0 12px 28px rgba(0, 0, 0, .18), 0 0 0 2px var(--accent) inset;
+			border-color: var(--accent);
+			background: var(--accent-15);
+		}
+
+		#nav a {
+			/* makes the links black */
+			font-weight: bold;
+			/* optional: make them bolder */
+		}
+
+		#nav a:hover {
+			color: #935d8c;
+		}
+
+		/* Header heading */
+		#header h1 {
+			font-size: clamp(2.25rem, 5vw, 3.5rem);
+			/* responsive */
+			font-weight: 500;
+			/* extra bold */
+			line-height: 1.1;
+			margin: 0.25rem 0 0.5rem;
+		}
+
+		.exp-grid{ align-items: stretch; } /* grid items stretch by default, but be explicit */
+.exp-card{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.exp-body{ flex: 1 0 auto; } 
+
+
+/* Uniform cover box for all cards */
+.exp-cover{
+  background: transparent;  
+  aspect-ratio: 4 / 3;           /* same shape for every card */
+  display: grid;
+  place-items: center;           /* center the logo */
+  padding: clamp(10px, 2vw, 22px);
+}
+
+/* Make the image fit inside the box without cropping */
+.exp-cover img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;           /* shows the whole logo, no crop */
+  object-position: center;
+}
+	</style>
+</head>
+
+<body class="is-preload">
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+		<!-- Header -->
+		<header id="header" class="alt">
+			<header id="header" class="alt">
+				<div id="particles-js" aria-hidden="true"></div>
+
+				<h1>Hi, I am <span class="highlight" style="color:var(--accent)">Sagarika</span></h1>
+
+				<!-- Typing line -->
+				<p class="typing-text">
+					<span id="role-line"></span><span class="cursor"></span>
+				</p>
+
+				<p>Data & BI practitioner. Turning raw data into decisions.</p>
+			</header>
+		</header>
+
+		<!-- Nav -->
+		<nav id="nav">
+			<ul>
+				<li><a href="#intro" class="active">About</a></li>
+				<li><a href="#projects">Projects</a></li>
+				<li><a href="#skills-tools">Skills</a></li>
+				<li><a href="#education">Education</a></li>
+				<li><a href="#experience">Work Experience</a></li>
+				<li><a href="#connect">Connect</a></li>
+			</ul>
+		</nav>
+
+		<!-- Main -->
+		<div id="main">
+
+			<!-- Introduction -->
+			<section id="intro" class="main section-fade">
+				<div class="spotlight">
+					<div class="content">
+						<header class="major">
+							<h2>About Me</h2>
+						</header>
+						<p>I’m a Data & Business Intelligence Practitioner who enjoys working across analysis,
+							engineering, and strategy. From writing SQL queries to building ETL pipelines and
+							dashboards, I’m comfortable cleaning messy datasets, improving pipelines, and creating
+							visuals that highlight the numbers that matter. I like working where messy business problems
+							meet technical solutions, finding ways to bring structure and clarity to complex questions.
+						</p>
+						<p>Outside of analytics, I enjoy experimenting in the kitchen, where building a recipe often
+							feels like building a data model: both start messy, require balance and creativity, and when
+							done right, become more than the sum of their parts. To recharge, I love traveling to catch
+							new sunsets — a reminder that, much like in data, fresh perspectives can completely change
+							the picture.</p>
+						<ul class="actions">
+							<li><a href="Resume/Sagarika Shinde Resume.pdf" class="button hover-accent">Resume</a>
+							</li>
+							<li><a href="#projects" class="button hover-accent">View Projects</a></li>
+							<li><a href="https://public.tableau.com/app/profile/sagarika.shinde8447/vizzes" class="button hover-accent">Tableau</a></li>
+						</ul>
+					</div>
+					<span class="image"><img src="images/IMG_21681.jpg" alt="" /></span>
+				</div>
+			</section>
+
+			<!-- Projects -->
+			<section id="projects" class="main special section-fade">
+				<header class="major">
+					<h2>Projects</h2>
+					<p>What I've worked on</p>
+				</header>
+
+				<div class="projects-grid">
+					<!-- 1 -->
+					 <article class="project-card hover-accent">
+						<a class="project-image"
+							href="https://github.com/SagarikaS1999/ETL-Analytics-Engineering-Pipeline-In-SQL"
+							target="_blank" rel="noopener">
+							<img src="images/Data Architecture.png" alt="SQL Data Warehousing ETL Project">
+						</a>
+						<div class="project-content">
+							<div class="project-title-with-icon">
+								<h3 class="project-title">SQL Data Warehousing ETL Project</h3>
+								<div class="project-links">
+									<a class="project-link"
+										href="https://github.com/SagarikaS1999/ETL-Analytics-Engineering-Pipeline-In-SQL"
+										target="_blank" rel="noopener" aria-label="View on GitHub">
+										<i class="fab fa-github"></i>
+									</a>
+								</div>
+							</div>
+							<p class="project-description">
+								Designed an end-to-end retail analytics platform using the Medallion Architecture (Bronze → Silver → Gold), building ETL pipelines in PySpark orchestrated with Apache Airflow, loading transformed data into a DuckDB analytical data warehouse, and delivering business-ready metrics through Power BI dashboards.							</p>
+							<ul class="project-tags">
+								<li class="project-tag">Python</li>
+								<li class="project-tag">PySpark</li>
+								<li class="project-tag">SQL</li>
+								<li class="project-tag">DuckDB</li>
+								<li class="project-tag">Apache Airflow</li>
+								<li class="project-tag">Power BI</li>
+							</ul>
+						</div>
+					</article>
+
+					<!-- 2 -->
+					<article class="project-card hover-accent">
+						<a class="project-image"
+							href="https://github.com/SagarikaS1999/The-Tech-Journal-Employment-Analysis-Using-Tableau"
+							target="_blank" rel="noopener">
+							<img src="images/TTJ.PNG" alt="The Tech Journal">
+						</a>
+						<div class="project-content">
+							<div class="project-title-with-icon">
+								<h3 class="project-title">The Tech Journal</h3>
+								<div class="project-links">
+									<a class="project-link"
+										href="https://github.com/SagarikaS1999/The-Tech-Journal-Employment-Analysis-Using-Tableau"
+										target="_blank" rel="noopener" aria-label="View on GitHub">
+										<i class="fab fa-github"></i>
+									</a>
+								</div>
+							</div>
+							<p class="project-description">
+								This project presents an interactive Tableau dashboard and analytical report exploring
+								the evolving relationship between employment dynamics, especially H-1B visa trends and
+								stock performance across major tech companies, post-COVID and during the rise of
+								artificial intelligence.
+							</p>
+							<ul class="project-tags">
+								<li class="project-tag">Python</li>
+								<li class="project-tag">Pandas</li>
+								<li class="project-tag">Excel</li>
+								<li class="project-tag">Tableau</li>
+							</ul>
+						</div>
+					</article>
+
+					<!-- 3 -->
+					<article class="project-card hover-accent">
+						<a class="project-image" href="https://github.com/SagarikaS1999/Pokemon-Gen1-Analysis-In-R"
+							target="_blank" rel="noopener">
+							<img src="images/wallpaper.jpg" alt="Pokemon">
+						</a>
+						<div class="project-content">
+							<div class="project-title-with-icon">
+								<h3 class="project-title">Pokemon Gen1 Analysis</h3>
+								<div class="project-links">
+									<a class="project-link"
+										href="https://github.com/SagarikaS1999/Pokemon-Gen1-Analysis-In-R"
+										target="_blank" rel="noopener" aria-label="View on GitHub">
+										<i class="fab fa-github"></i>
+									</a>
+								</div>
+							</div>
+							<p class="project-description">
+								This project explores Generation 1 Pokémon through the lens of data science and visual
+								storytelling. By leveraging R-based visualization libraries, the analysis delves into
+								type distributions, base stats, evolutionary progressions, and legendary status
+								comparisons. This project is for Pokémon fans and data storytellers alike.
+							</p>
+							<ul class="project-tags">
+								<li class="project-tag">R Programming</li>
+								<li class="project-tag">ggplot2</li>
+								<li class="project-tag">dplyr, tidyr</li>
+								<li class="project-tag">packcircles</li>
+							</ul>
+						</div>
+					</article>
+
+					<!-- 4 -->
+					<article class="project-card hover-accent">
+						<a class="project-image"
+							href="https://github.com/SagarikaS1999/Ecommerce-Customer-Retention-Growth-Analytics"
+							target="_blank" rel="noopener">
+							<img src="images/ecommerce_wallpaper.jpg" alt="Ecommerce Customer Retention Analytics">
+						</a>
+						<div class="project-content">
+							<div class="project-title-with-icon">
+								<h3 class="project-title">Ecommerce Customer Retention Analytics</h3>
+								<div class="project-links">
+									<a class="project-link"
+										href="https://github.com/SagarikaS1999/Ecommerce-Customer-Retention-Growth-Analytics"
+										target="_blank" rel="noopener" aria-label="View on GitHub">
+										<i class="fab fa-github"></i>
+									</a>
+								</div>
+							</div>
+							<p class="project-description">
+								This repository contains my solutions to a SQL-based analytics case study for a Data
+								Growth Analyst role. The case simulates a real-world data analysis task using an
+								e-commerce dataset to uncover insights around customer retention, revenue health,
+								lifetime value, and churn risk.
+							</p>
+							<ul class="project-tags">
+								<li class="project-tag">Python</li>
+								<li class="project-tag">Pandas</li>
+								<li class="project-tag">PandaSQL</li>
+								<li class="project-tag">SQL</li>
+								<li class="project-tag">Matplotlib</li>
+								<li class="project-tag">Seaborn</li>
+							</ul>
+						</div>
+					</article>
+
+					<!-- 5 -->
+					<article class="project-card hover-accent">
+						<a class="project-image"
+							href="https://github.com/SagarikaS1999/Energy-Consumption-Optimization-in-R" target="_blank"
+							rel="noopener">
+							<img src="images/energy.jpg" alt="Energy Optimization">
+						</a>
+						<div class="project-content">
+							<div class="project-title-with-icon">
+								<h3 class="project-title">Energy Optimization</h3>
+								<div class="project-links">
+									<a class="project-link"
+										href="https://github.com/SagarikaS1999/Energy-Consumption-Optimization-in-R"
+										target="_blank" rel="noopener" aria-label="View on GitHub">
+										<i class="fab fa-github"></i>
+									</a>
+								</div>
+							</div>
+							<p class="project-description">
+								In this project the goal was to utilise advanced analytics and machine learning to
+								optimise energy consumption during peak periods, leveraging R, Shiny, and statistical
+								modelling.
+							</p>
+							<ul class="project-tags">
+								<li class="project-tag">R Programming</li>
+								<li class="project-tag">Machine Learning</li>
+								<li class="project-tag">Support Vector Machine (SVM)</li>
+								<li class="project-tag">Generalized Linear Models (GLM)</li>
+								<li class="project-tag">Power BI</li>
+							</ul>
+						</div>
+					</article>
+
+				</div>
+			</section>
+
+			<!--- Tools & Technologies --->
+			<section id="skills-tools" class="main special toolband">
+				<header class="major">
+					<h2>Skills by Toolset</h2>
+					<p>A quick map of the tools I use across data work.</p>
+				</header>
+
+				<!-- DATA & ANALYTICS -->
+				<h3>Business Intelligence Tools</h3>
+				<div class="brandrow">
+					</span>
+					<span class="brand"><img class="brand-logo"
+							src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+							alt=""><em>Python</em></span>
+					<span class="brand"><i class="devicon-azuresqldatabase-plain colored"></i><em>SQL</em></span>
+					<span class="brand"><img class="brand-logo" src="https://cdn.simpleicons.org/googleanalytics"
+							alt=""><em>Google Analytics</em></span>
+					<span class="brand"><img class="brand-logo"
+							src="https://img.icons8.com/?size=100&id=3sGOUDo9nJ4k&format=png&color=000000"
+							alt=""><em>Power&nbsp;BI</em></span>
+					<span class="brand"><img class="brand-logo"
+							src="https://img.icons8.com/?size=100&id=9Kvi1p1F0tUo&format=png&color=000000"
+							alt=""><em>Tableau</em></span>
+					<span class="brand"><img class="brand-logo"
+							src="https://img.icons8.com/?size=100&id=117561&format=png&color=000000"
+							alt=""><em>Excel</em></span>
+					<span class="brand"><img class="brand-logo" src="https://cdn.simpleicons.org/looker"
+							alt=""><em>Looker</em></span>
+				</div>
+
+				<!-- DATA ENGINEERING-->
+				<h3>Data Engineering</h3>
+				<div class="brandrow">
+					<span class="brand"><i class="devicon-apacheairflow-plain colored"></i><em>Airflow</em></span>
+					<span class="brand"><i class="devicon-apachespark-original colored"></i><em>Spark</em></span>
+					<span class="brand"><i class="devicon-apachekafka-original colored"></i><em>Kafka</em></span>
+					<span class="brand"><img class="brand-logo" src="https://cdn.simpleicons.org/snowflake"
+							alt=""><em>Snowflake</em></span>
+					<span class="brand"><img class="brand-logo"
+							src="Databricks_idF4fnHpaJ_1.png"><em>Databricks</em></span>
+							<span class="brand"><img class="brand-logo"
+							src="port.png"><em>DBT</em></span>
+				</div>
+
+				<!-- Database Tools-->
+				<h3>Databases</h3>
+				<div class="brandrow">
+					<span class="brand">
+						<img class="brand-logo"
+							src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" />
+						<em>MySQL</em></span>
+					<span class="brand"><i class="devicon-postgresql-plain colored"></i><em>PostgreSQL</em></span>
+					<span class="brand"><img class="brand-logo" src="BigQuery.png" alt=""><em>Google BigQuery</em></span>
+					<span class="brand"><img class="brand-logo" src="duckdb.jpg" alt=""><em>DuckDB</em></span>				
+				</div>
+
+				<!-- DevOps/Cloud -->
+				<h3>Cloud &amp; DevOps</h3>
+				<div class="brandrow">
+					<span class="brand">
+						<img class="brand-logo"
+							src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" />
+						<em>AWS</em></span>
+					<span class="brand">
+						<img class="brand-logo"
+							src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" />
+						<em>Microsoft Azure</em></span>
+					<span class="brand"><i class="devicon-git-plain colored"></i><em>Git</em></span>
+					<span class="brand">
+						<img class="brand-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bitbucket/bitbucket-original.svg" />
+						<em>BitBucket</em></span>
+				</div>
+
+				<!-- PROJECT MANAGEMENT -->
+				<h3>Project Management</h3>
+				<div class="brandrow">
+					<span class="brand"><i class="devicon-jira-plain colored"></i><em>Jira</em></span>
+					<span class="brand"><i class="devicon-trello-plain colored"></i><em>Trello</em></span>
+					<span class="brand"><i class="devicon-confluence-plain colored"></i><em>Confluence</em></span>
+					<span class="brand"><img class="brand-logo" src="https://cdn.simpleicons.org/notion"
+							alt=""><em>Notion</em></span>
+				</div>
+
+				<!-- AI & Automation -->
+				<h3>AI &amp; Automation</h3>
+				<div class="brandrow">
+					<span class="brand"><img class="brand-logo"
+							src="https://img.icons8.com/?size=100&id=ka3InxFU3QZa&format=png&color=000000"
+							alt=""><em>ChatGPT</em></span>
+					<span class="brand"><img class="brand-logo"
+							src="https://img.icons8.com/?size=100&id=zQjzFjPpT2Ek&format=png&color=000000"
+							alt=""><em>Claude</em></span>
+					<span class="brand"><img class="brand-logo"
+							src="https://img.icons8.com/?size=100&id=rnK88i9FvAFO&format=png&color=000000"
+							alt=""><em>Gemini AI</em></span>
+				</div>
+			</section>
+
+			<!-- Education — Year Rail + Horizontal Cards -->
+			<section id="education" class="main special toolband">
+				<header class="major">
+					<h2>Education</h2>
+				</header>
+
+				<ol class="edu-rail">
+					<!-- Master’s -->
+					<li class="edu-node">
+						<div class="edu-col">
+							<span class="edu-year">2023–2025</span>
+							<span class="edu-dot" aria-hidden="true"></span>
+							<span class="edu-line" aria-hidden="true"></span>
+						</div>
+
+						<article class="edu-card hover-accent">
+							<div class="edu-head">
+								<!-- Logo -->
+								<img class="edu-logo" src="images/download.png" alt="Syracuse University logo"
+									width="56" height="56" loading="lazy" />
+
+								<!-- Text block -->
+								<div class="edu-head-text">
+									<div class="edu-top">
+										<span class="edu-degree">
+											<span class="icon solid fa-graduation-cap"></span>
+											Master of Science in Information Systems
+										</span>
+										<span class="edu-meta">GPA 3.6/4 · Syracuse, NY</span>
+									</div>
+
+									<h3 class="edu-school">Syracuse University</h3>
+									<p class="edu-dates">August 2023 – May 2025</p>
+								</div>
+							</div>
+
+							<!-- Course chips (keep as-is if you already have them) -->
+							<div class="edu-courses">
+								<span class="edu-chip"><span class="icon solid fa-chart-bar"></span> Data
+									Visualization Dashboards</span>
+								<span class="edu-chip"><span class="icon fa-solid fa-chart-pie"></span>
+									Statistics</span>
+								<span class="edu-chip"><span class="icon solid fa-brain"></span> Advanced Data
+									Analytics & Decision Making</span>
+								<span class="edu-chip"><span class="icon solid fa-chart-line"></span> Business
+									Analytics</span>
+								<span class="edu-chip"><span class="icon solid fa-database"></span> DBMS</span>
+								<span class="edu-chip"><span class="icon solid fa-warehouse"></span> Data
+									Warehousing</span>
+							</div>
+						</article>
+					</li>
+
+					<!-- Bachelor’s -->
+					<li class="edu-node">
+						<div class="edu-col">
+							<span class="edu-year">2017–2021</span>
+							<span class="edu-dot" aria-hidden="true"></span>
+							<!-- no line on the last one -->
+						</div>
+
+						<article class="edu-card hover-accent">
+							<div class="edu-head">
+								<img class="edu-logo" src="images/download (1).jpg" alt="Mumbai University logo"
+									width="56" height="56" loading="lazy" />
+
+								<div class="edu-head-text">
+									<div class="edu-top">
+										<span class="edu-degree">
+											<span class="icon solid fa-user-graduate"></span>
+											Bachelor of Engineering in Computer Engineering
+										</span>
+										<span class="edu-meta">GPA 3.5/4 · Mumbai, India</span>
+									</div>
+
+									<h3 class="edu-school">Mumbai University</h3>
+									<p class="edu-dates">August 2017 – May 2021</p>
+								</div>
+							</div>
+							<!-- Course chips (keep as-is if you already have them) -->
+							<div class="edu-courses">
+								<span class="edu-chip"><span class="icon fa-solid fa-calculator"></span> Applied
+									Mathematics</span>
+								<span class="edu-chip"><span class="icon fa-solid fa-square-binary"></span> Object
+									Oriented Programming</span>
+								<span class="edu-chip"><span class="icon fa-solid fa-laptop-code"></span> Applied
+									Machine Learning</span>
+							</div>
+						</article>
+					</li>
+				</ol>
+			</section>
+
+			<!-- Work Experience — Pipeline Cards -->
+			<section id="experience" class="main special toolband">
+				<header class="major">
+					<h2>Work Experience</h2>
+				</header>
+
+				<div class="exp-grid">
+					<!-- Card -->
+					<article class="exp-card hover-accent">
+						<div class="exp-cover">
+							<img src="images/download ischool.jpeg" alt="School of Information Studies logo">
+						</div>
+						<div class="exp-body">
+							<h3 class="exp-company">iConsult Collaborative</h3>
+							<p class="exp-role">Data Analyst</p>
+							<p class="exp-dates">June 2025 – Present</p>
+						</div>
+					</article>
+
+					<article class="exp-card hover-accent">
+						<div class="exp-cover">
+							<img src="images/download ischool.jpeg" alt="School of Information Studies logo">
+						</div>
+						<div class="exp-body">
+							<h3 class="exp-company">School of Information Studies</h3>
+							<p class="exp-role">Business Intelligence Analyst</p>
+							<p class="exp-dates">October 2024 – May 2025</p>
+						</div>
+					</article>
+
+					<article class="exp-card hover-accent">
+						<div class="exp-cover">
+							<img src="images/morningstar.png" alt="Morningstar logo">
+						</div>
+						<div class="exp-body">
+							<h3 class="exp-company">Morningstar</h3>
+							<p class="exp-role">Business Intelligence Engineer</p>
+							<p class="exp-dates">August 2021 – June 2023</p>
+						</div>
+					</article>
+				</div>
+			</section>
+
+
+			<!-- Connect -->
+			<section id="connect" class="main special">
+				<header class="major">
+					<h2>Connect.</h2>
+					<p>Let’s collaborate, chat data, or geek out on pipelines.</p>
+				</header>
+
+				<ul class="connect-circles">
+					<!-- LinkedIn -->
+					<li>
+						<a class="circle linkedin hover-accent" href="https://www.linkedin.com/in/sagarika-shinde/"
+							target="_blank" rel="noopener" aria-label="Open LinkedIn">
+							<span class="icon brands fa-linkedin-in" aria-hidden="true"></span>
+						</a>
+						<h3><a href="https://www.linkedin.com/in/sagarika-shinde/" target="_blank"
+								rel="noopener">LinkedIn</a></h3>
+					</li>
+
+					<!-- Gmail -->
+					<li>
+						<a class="circle gmail" href="mailto:sagarikashinde24@gmail.com" aria-label="Email me">
+							<span class="brand"><img class="brand-logo" src="gmail.png" alt=""></span>
+						</a>
+						<h3><a href="mailto:sagarikashinde24@gmail.com">Email</a></h3>
+					</li>
+
+					<!-- GitHub -->
+					<li>
+						<a class="circle github" href="https://github.com/SagarikaS1999" target="_blank" rel="noopener"
+							aria-label="Open GitHub">
+							<span class="icon brands fa-github" aria-hidden="true"></span>
+						</a>
+						<h3><a href="https://github.com/SagarikaS1999" target="_blank" rel="noopener">GitHub</a></h3>
+					</li>
+				</ul>
+			</section>
+
+		</div>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<section>
+				<dl class="alt">
+					<dt>Address</dt>
+					<dd>Syracuse &bull; New York &bull; USA</dd>
+					<dt>Email</dt>
+					<dd><a href="#">sagarikashinde24@gmail.com</a></dd>
+				</dl>
+			</section>
+			<p class="copyright">&copy; 2025 Sagarika Shinde.</p>
+		</footer>
+
+	</div>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			/* 1) Typing effect */
+			if (window.Typed) {
+				new Typed('#role-line', {
+					strings: ['Data Analyst', 'Business Intelligence Analyst', 'Data Engineer'],
+					typeSpeed: 80,
+					backSpeed: 40,
+					backDelay: 1500,
+					loop: true,
+					smartBackspace: true
+				});
+			}
+
+			/* 2) Particles in header */
+			if (window.particlesJS) {
+				particlesJS('particles-js', {
+					particles: {
+						number: { value: 80, density: { enable: true, value_area: 800 } },
+						color: { value: "#9370db" },
+						shape: { type: "circle" },
+						opacity: { value: 0.5 },
+						size: { value: 3, random: true },
+						line_linked: { enable: true, distance: 150, color: "#9370db", opacity: 0.4, width: 1 },
+						move: { enable: true, speed: 2, out_mode: "out" }
+					},
+					interactivity: {
+						detect_on: "canvas",
+						events: { onhover: { enable: true, mode: "grab" }, onclick: { enable: true, mode: "push" } },
+						modes: { grab: { distance: 140, line_linked: { opacity: 1 } }, push: { particles_nb: 4 } }
+					},
+					retina_detect: true
+				});
+			}
+
+			/* 3) Reveal-on-scroll (lightweight, plays nice with Stellar) */
+			const els = document.querySelectorAll('.reveal');
+			const io = new IntersectionObserver((entries) => {
+				entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+			}, { threshold: 0.12 });
+			els.forEach(el => io.observe(el));
+		});
+	</script>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
